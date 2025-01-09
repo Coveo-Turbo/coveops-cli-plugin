@@ -20,7 +20,7 @@ $ npm install -g coveops-cli-plugin
 $ coveops COMMAND
 running command...
 $ coveops (--version)
-coveops-cli-plugin/0.0.0 darwin-arm64 node-v20.16.0
+coveops-cli-plugin/0.1.0 darwin-arm64 node-v20.16.0
 $ coveops --help [COMMAND]
 USAGE
   $ coveops COMMAND
@@ -67,7 +67,7 @@ EXAMPLES
   hello friend from oclif! (./src/commands/hello/index.ts)
 ```
 
-_See code: [src/commands/hello/index.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.0.0/src/commands/hello/index.ts)_
+_See code: [src/commands/hello/index.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.1.0/src/commands/hello/index.ts)_
 
 ## `coveops hello world`
 
@@ -85,7 +85,7 @@ EXAMPLES
   hello world! (./src/commands/hello/world.ts)
 ```
 
-_See code: [src/commands/hello/world.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.0.0/src/commands/hello/world.ts)_
+_See code: [src/commands/hello/world.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.1.0/src/commands/hello/world.ts)_
 
 ## `coveops help [COMMAND]`
 
@@ -128,7 +128,7 @@ DESCRIPTION
   Create a new Vault parameter in the specified organization
 ```
 
-_See code: [src/commands/org/vaults/create.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.0.0/src/commands/org/vaults/create.ts)_
+_See code: [src/commands/org/vaults/create.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.1.0/src/commands/org/vaults/create.ts)_
 
 ## `coveops org vaults list`
 
@@ -148,7 +148,7 @@ EXAMPLES
   coveo org:vaults:list
 ```
 
-_See code: [src/commands/org/vaults/list.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.0.0/src/commands/org/vaults/list.ts)_
+_See code: [src/commands/org/vaults/list.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.1.0/src/commands/org/vaults/list.ts)_
 
 ## `coveops plugins`
 

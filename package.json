@@ -1,7 +1,7 @@
 {
   "name": "coveops-cli-plugin",
   "description": "A new CLI generated with oclif",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "contributors": [
     {
       "name": "Jantoun_coveo",
