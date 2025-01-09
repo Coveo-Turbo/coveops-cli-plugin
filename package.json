@@ -56,8 +56,8 @@
   "main": "dist/index.js",
   "type": "module",
   "oclif": {
-    "bin": "coveops-cli-plugin",
-    "dirname": "coveops-cli-plugin",
+    "bin": "coveops",
+    "dirname": "coveops",
     "commands": "./dist/commands",
     "plugins": [
       "@oclif/plugin-help",

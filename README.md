@@ -20,7 +20,7 @@ $ npm install -g coveops-cli-plugin
 $ coveops COMMAND
 running command...
 $ coveops (--version)
-coveops-cli-plugin/0.0.0 darwin-arm64 node-v20.18.0
+coveops-cli-plugin/0.0.0 darwin-arm64 node-v20.16.0
 $ coveops --help [COMMAND]
 USAGE
   $ coveops COMMAND
@@ -32,6 +32,8 @@ USAGE
 * [`coveops hello PERSON`](#coveops-hello-person)
 * [`coveops hello world`](#coveops-hello-world)
 * [`coveops help [COMMAND]`](#coveops-help-command)
+* [`coveops org vaults create`](#coveops-org-vaults-create)
+* [`coveops org vaults list`](#coveops-org-vaults-list)
 * [`coveops plugins`](#coveops-plugins)
 * [`coveops plugins add PLUGIN`](#coveops-plugins-add-plugin)
 * [`coveops plugins:inspect PLUGIN...`](#coveops-pluginsinspect-plugin)
@@ -104,6 +106,49 @@ DESCRIPTION
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v6.2.20/src/commands/help.ts)_
+
+## `coveops org vaults create`
+
+Create a new Vault parameter in the specified organization
+
+```
+USAGE
+  $ coveops org vaults create -n <value> -v <value> [-r EXTENSION|SOURCE -s <value>...] [-t PUBLIC|OBFUSCATED|STRICT]
+
+FLAGS
+  -n, --key=<value>            (required) Key for the Vault parameter
+  -r, --resourceType=<option>  [default: EXTENSION] Resource type for Scope of the Vault parameter
+                               <options: EXTENSION|SOURCE>
+  -s, --scope=<value>...       Scope for the Vault parameter
+  -t, --visibility=<option>    [default: OBFUSCATED] Visibility type (PUBLIC, OBFUSCATED, or STRICT)
+                               <options: PUBLIC|OBFUSCATED|STRICT>
+  -v, --value=<value>          (required) Value for the Vault parameter
+
+DESCRIPTION
+  Create a new Vault parameter in the specified organization
+```
+
+_See code: [src/commands/org/vaults/create.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.0.0/src/commands/org/vaults/create.ts)_
+
+## `coveops org vaults list`
+
+List all Vault parameters in the specified organization
+
+```
+USAGE
+  $ coveops org vaults list [--json]
+
+GLOBAL FLAGS
+  --json  Format output as json.
+
+DESCRIPTION
+  List all Vault parameters in the specified organization
+
+EXAMPLES
+  coveo org:vaults:list
+```
+
+_See code: [src/commands/org/vaults/list.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.0.0/src/commands/org/vaults/list.ts)_
 
 ## `coveops plugins`
 
