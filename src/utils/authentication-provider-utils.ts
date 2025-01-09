@@ -13,6 +13,7 @@ export interface SamlAuthenticationProviderModel {
   expiration: number;
   metadata: string;
   name: string;
+  organization: string;
   provider: string;
   relyingPartyIdentifier: string;
 }
@@ -21,6 +22,7 @@ export interface SharepointClaimsAuthenticationProviderModel {
   expiration: number;
   metadata: string;
   name: string;
+  organization: string;
   provider: string;
   secret: string;
   uri: string;
@@ -45,11 +47,12 @@ export function buildAuthProviderPayload(
     }
 
     return {
-      assertionConsumerServiceUrl: payload.assertionConsumerServiceUrl,
+      assertionConsumerServiceUrl: payload.assertionConsumerServiceUrl || `https://platform.cloud.coveo.com/rest/search/v2/login/${payload.name}?organizationId=${payload.organization}`,
       enforceTrustedUris: payload.enforceTrustedUris,
       expiration: payload.expiration || 0,
       metadata: payload.metadata || '',
       name: payload.name || '',
+      organization: payload.organization || '',
       provider: payload.provider || '',
       relyingPartyIdentifier: payload.relyingPartyIdentifier,
     };
@@ -65,6 +68,7 @@ export function buildAuthProviderPayload(
       expiration: payload.expiration || 0,
       metadata: payload.metadata || '',
       name: payload.name || '',
+      organization: payload.organization || '',
       provider: payload.provider || '',
       secret: payload.secret,
       uri: payload.uri,

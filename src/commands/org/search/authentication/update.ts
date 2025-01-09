@@ -21,7 +21,7 @@ export default class OrgSearchAuthenticationUpdate extends Command {
     enforceTrustedUris: Flags.boolean({char: 'f', default: true, description: 'Enforce trusted URIs'}),
     expiration: Flags.integer({char: 'e', default: 0, description: 'Expiration time for the authentication provider'}),
     metadataUrl: Flags.string({char: 'm', description: 'Metadata URL for the authentication provider'}),
-    name: Flags.string({char: 'n', description: 'Name of the authentication provider'}),
+    name: Flags.string({char: 'n', description: 'Name of the authentication provider', required: true}),
     provider: Flags.string({char: 'p', default: 'Email Security Provider', description: 'Desired Security Provider for the authentication provider'}),
     // flag with a value (-r, --relyingPartyIdentifier=VALUE)
     relyingPartyIdentifier: Flags.string({
@@ -74,8 +74,9 @@ export default class OrgSearchAuthenticationUpdate extends Command {
 
     const authProviderPayload = buildAuthProviderPayload(flags.type as AuthenticationProviderType, {
       ...flags,
-      metadata, 
-      name: flags.name
+      metadata,
+      name: flags.name,
+      organization
     });
 
     if (!authProviderPayload) {
@@ -85,7 +86,7 @@ export default class OrgSearchAuthenticationUpdate extends Command {
     try {
         // eslint-disable-next-line dot-notation
         await platformClient['API'].put(`${baseUrl}/${flags.type}/${args.id}`, authProviderPayload);
-        this.log(`Authentication provider "${flags.name}" updated successfully.`);
+        this.log(`Authentication provider "${args.id}" updated successfully.`);
     } catch (error) {
         this.error(`Failed to create Authentication provider: ${error}`);
     }

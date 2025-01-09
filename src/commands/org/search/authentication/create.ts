@@ -74,7 +74,8 @@ export default class OrgSearchAuthenticationCreate extends Command {
     const authProviderPayload = buildAuthProviderPayload(AuthenticationProviderType.Saml, {
       ...flags,
       metadata, 
-      name: args.name
+      name: args.name,
+      organization
     });
 
     if (!authProviderPayload) {
