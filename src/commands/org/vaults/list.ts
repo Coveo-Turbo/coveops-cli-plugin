@@ -9,6 +9,7 @@ export default class ListVaults extends Command {
   public static examples = ['coveo org:vaults:list'];
 
   public async run(): Promise<PageModel<VaultEntryModel>|undefined> {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const {flags} = await this.parse(ListVaults);
 
     const {accessToken, organization} = this.configuration.get();
@@ -23,15 +24,15 @@ export default class ListVaults extends Command {
     });
 
     const theme = {
+      boolean: 'cyan',
       brace: '#00FFFF',
       bracket: 'rgb(0, 255, 255)',
       colon: 'dim',
       comma: 'yellow',
       key: 'bold',
-      string: 'green',
-      number: 'blue',
-      boolean: 'cyan',
       null: 'redBright',
+      number: 'blue',
+      string: 'green',
     }
 
     try {
@@ -42,6 +43,7 @@ export default class ListVaults extends Command {
       } else {
         this.log(ux.colorizeJson(vaults, {theme}));
       }
+
       return vaults;
       
     } catch (error) {
