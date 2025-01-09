@@ -32,6 +32,10 @@ USAGE
 * [`coveops hello PERSON`](#coveops-hello-person)
 * [`coveops hello world`](#coveops-hello-world)
 * [`coveops help [COMMAND]`](#coveops-help-command)
+* [`coveops org search authentication create NAME`](#coveops-org-search-authentication-create-name)
+* [`coveops org search authentication delete ID`](#coveops-org-search-authentication-delete-id)
+* [`coveops org search authentication list`](#coveops-org-search-authentication-list)
+* [`coveops org search authentication update ID`](#coveops-org-search-authentication-update-id)
 * [`coveops org vaults create`](#coveops-org-vaults-create)
 * [`coveops org vaults list`](#coveops-org-vaults-list)
 * [`coveops plugins`](#coveops-plugins)
@@ -106,6 +110,126 @@ DESCRIPTION
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v6.2.20/src/commands/help.ts)_
+
+## `coveops org search authentication create NAME`
+
+Create a new Authentication provider (SAML or Sharepoint Claims) in the specified organization
+
+```
+USAGE
+  $ coveops org search authentication create NAME -r <value> [-a <value>] [-f] [-e <value>] [-m <value>] [-p <value>] [-s <value>] [-t
+    saml|sharepoint] [-u <value>]
+
+ARGUMENTS
+  NAME  Name for the authentication provider
+
+FLAGS
+  -a, --assertionConsumerServiceUrl=<value>  Assertion Consumer Service URL for the authentication provider
+  -e, --expiration=<value>                   Expiration time for the authentication provider
+  -f, --enforceTrustedUris                   Enforce trusted URIs
+  -m, --metadataUrl=<value>                  Metadata URL for the authentication provider
+  -p, --provider=<value>                     [default: Email Security Provider] Desired Security Provider for the
+                                             authentication provider
+  -r, --relyingPartyIdentifier=<value>       (required) [default: https://platform.cloud.coveo.com] Relying Party
+                                             Identifier for the authentication provider
+  -s, --secret=<value>                       Secret for the authentication provider
+  -t, --type=<option>                        [default: saml] Type of authentication provider to list
+                                             <options: saml|sharepoint>
+  -u, --uri=<value>                          URI for the Sharepoint Claims authentication provider
+
+DESCRIPTION
+  Create a new Authentication provider (SAML or Sharepoint Claims) in the specified organization
+
+EXAMPLES
+  $ coveops org search authentication create --type saml "My SAML Provider" --metadataUrl "https://example.com/metadata.xml"
+```
+
+_See code: [src/commands/org/search/authentication/create.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.1.0/src/commands/org/search/authentication/create.ts)_
+
+## `coveops org search authentication delete ID`
+
+Deletes an existing Authentication provider (SAML or Sharepoint Claims) in the specified organization
+
+```
+USAGE
+  $ coveops org search authentication delete ID [-t saml|sharepoint]
+
+ARGUMENTS
+  ID  Id of the authentication provider to delete
+
+FLAGS
+  -t, --type=<option>  Type of authentication provider to list
+                       <options: saml|sharepoint>
+
+DESCRIPTION
+  Deletes an existing Authentication provider (SAML or Sharepoint Claims) in the specified organization
+
+EXAMPLES
+  $ coveops org search authentication delete 73404dc5-1111-1111-1111-0e5144482521
+```
+
+_See code: [src/commands/org/search/authentication/delete.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.1.0/src/commands/org/search/authentication/delete.ts)_
+
+## `coveops org search authentication list`
+
+List all authentication providers for an organization
+
+```
+USAGE
+  $ coveops org search authentication list [--json] [-f] [-t saml|sharepoint]
+
+FLAGS
+  -f, --force
+  -t, --type=<option>  Type of authentication provider to list
+                       <options: saml|sharepoint>
+
+GLOBAL FLAGS
+  --json  Format output as json.
+
+DESCRIPTION
+  List all authentication providers for an organization
+
+EXAMPLES
+  $ coveops org search authentication list
+```
+
+_See code: [src/commands/org/search/authentication/list.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.1.0/src/commands/org/search/authentication/list.ts)_
+
+## `coveops org search authentication update ID`
+
+Updates an existing Authentication provider (SAML or Sharepoint Claims) in the specified organization
+
+```
+USAGE
+  $ coveops org search authentication update ID -r <value> [-a <value>] [-f] [-e <value>] [-m <value>] [-n <value>] [-p <value>] [-s
+    <value>] [-t saml|sharepoint] [-u <value>]
+
+ARGUMENTS
+  ID  Id of the authentication provider to update
+
+FLAGS
+  -a, --assertionConsumerServiceUrl=<value>  Assertion Consumer Service URL for the authentication provider
+  -e, --expiration=<value>                   Expiration time for the authentication provider
+  -f, --enforceTrustedUris                   Enforce trusted URIs
+  -m, --metadataUrl=<value>                  Metadata URL for the authentication provider
+  -n, --name=<value>                         Name of the authentication provider
+  -p, --provider=<value>                     [default: Email Security Provider] Desired Security Provider for the
+                                             authentication provider
+  -r, --relyingPartyIdentifier=<value>       (required) [default: https://platform.cloud.coveo.com] Relying Party
+                                             Identifier for the authentication provider
+  -s, --secret=<value>                       Secret for the authentication provider
+  -t, --type=<option>                        [default: saml] Type of authentication provider to list
+                                             <options: saml|sharepoint>
+  -u, --uri=<value>                          URI for the Sharepoint Claims authentication provider
+
+DESCRIPTION
+  Updates an existing Authentication provider (SAML or Sharepoint Claims) in the specified organization
+
+EXAMPLES
+  $ coveops org search authentication update --type saml 73404dc5-1111-1111-1111-0e5144482521 --relyingPartyIdentifier https://platform-ca.cloud.coveo.com
+```
+
+_See code: [src/commands/org/search/authentication/update.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.1.0/src/commands/org/search/authentication/update.ts)_
 
 ## `coveops org vaults create`
 
