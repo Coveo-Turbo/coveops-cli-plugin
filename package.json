@@ -65,6 +65,9 @@
     ],
     "topicSeparator": " ",
     "topics": {
+      "org:search:authentication": {
+        "description": "manage your authentication providers for an organization"
+      },
       "org:vaults": {
         "description": "manage your organization vaults"
       },

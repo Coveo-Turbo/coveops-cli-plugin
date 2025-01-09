@@ -1,6 +1,6 @@
+import {Config} from '@coveo/cli-commons/config/config';
 import {PlatformClient, ResourceSnapshotType, VaultValueType, VaultVisibilityType} from '@coveo/platform-client';
 import {Command, Flags} from '@oclif/core';
-import {Config} from '@coveo/cli-commons/config/config';
 
 
 export default class CreateVault extends Command {
@@ -8,23 +8,23 @@ export default class CreateVault extends Command {
   
   public static flags = {
     key: Flags.string({char: 'n', description: 'Key for the Vault parameter', required: true}),
-    value: Flags.string({char: 'v', description: 'Value for the Vault parameter', required: true}),
+    resourceType: Flags.string({
+      char: 'r', 
+      default: ResourceSnapshotType.extension,
+      dependsOn: ['scope'], 
+      description: 'Resource type for Scope of the Vault parameter',
+      options: [ResourceSnapshotType.extension, ResourceSnapshotType.source]
+    }),
     scope: Flags.string({
       char: 's', 
       description: 'Scope for the Vault parameter',
       multiple: true,
       multipleNonGreedy: true,
       relationships: [
-        {type: 'all', flags: ['resourceType']}
+        {flags: ['resourceType'], type: 'all'}
       ]
     }),
-    resourceType: Flags.string({
-      char: 'r', 
-      default: ResourceSnapshotType.extension,
-      description: 'Resource type for Scope of the Vault parameter', 
-      options: [ResourceSnapshotType.extension, ResourceSnapshotType.source],
-      dependsOn: ['scope']
-    }),
+    value: Flags.string({char: 'v', description: 'Value for the Vault parameter', required: true}),
     visibility: Flags.string({
       char: 't',
       default: VaultVisibilityType.OBFUSCATED,
@@ -53,10 +53,10 @@ export default class CreateVault extends Command {
       this.log(`Creating Vault parameter: ${flags.key}`);
       await platformClient.vault.create({
         key: flags.key,
+        scopes: flags.scope?.map(s => ({id:s, resourceType: flags.resourceType as ResourceSnapshotType.extension})),
         value: flags.value,
         valueType: VaultValueType.STRING,
-        vaultVisibilityType: flags.visibility as VaultVisibilityType.OBFUSCATED,
-        scopes: flags.scope?.map(s => ({id:s, resourceType: flags.resourceType as ResourceSnapshotType.extension}))
+        vaultVisibilityType: flags.visibility as VaultVisibilityType.OBFUSCATED
       });
       this.log(`Vault parameter "${flags.key}" created successfully.`);
     } catch (error) {
