@@ -2,12 +2,23 @@
   "name": "coveops-cli-plugin",
   "description": "A new CLI generated with oclif",
   "version": "0.0.0",
-  "author": "Jantoun_coveo",
+  "contributors": [
+    {
+      "name": "Jantoun_coveo",
+      "email": "jantoun@coveo.com"
+    },
+    {
+      "name": "Jean-François Allaire",
+      "email": "jfallaire@coveo.com"
+    }
+  ],
   "bin": {
     "coveops": "./bin/run.js"
   },
   "bugs": "https://github.com/Coveo-Turbo/coveops-cli-plugin/issues",
   "dependencies": {
+    "@coveo/cli-commons": "^2.9.4",
+    "@coveo/platform-client": "^57.12.0",
     "@oclif/core": "^4",
     "@oclif/plugin-help": "^6",
     "@oclif/plugin-plugins": "^5"
@@ -45,8 +56,8 @@
   "main": "dist/index.js",
   "type": "module",
   "oclif": {
-    "bin": "coveops",
-    "dirname": "coveops",
+    "bin": "coveops-cli-plugin",
+    "dirname": "coveops-cli-plugin",
     "commands": "./dist/commands",
     "plugins": [
       "@oclif/plugin-help",
@@ -54,6 +65,9 @@
     ],
     "topicSeparator": " ",
     "topics": {
+      "org:vaults": {
+        "description": "manage your organization vaults"
+      },
       "hello": {
         "description": "Say hello to the world and others"
       }
