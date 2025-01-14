@@ -21,7 +21,8 @@
     "@coveo/platform-client": "^57.12.0",
     "@oclif/core": "^4",
     "@oclif/plugin-help": "^6",
-    "@oclif/plugin-plugins": "^5"
+    "@oclif/plugin-plugins": "^5",
+    "semver": "^7.6.3"
   },
   "devDependencies": {
     "@oclif/prettier-config": "^0.2.1",
@@ -41,7 +42,7 @@
     "typescript": "^5"
   },
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=20.0.0"
   },
   "files": [
     "/bin",
