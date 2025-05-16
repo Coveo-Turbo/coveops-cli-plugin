@@ -47,14 +47,14 @@ export function buildAuthProviderPayload(
     }
 
     return {
-      assertionConsumerServiceUrl: payload.assertionConsumerServiceUrl || `https://platform.cloud.coveo.com/rest/search/v2/login/${payload.name}?organizationId=${payload.organization}`,
+      assertionConsumerServiceUrl: payload.assertionConsumerServiceUrl || `https://${payload.organization}.org.coveo.com/rest/search/v2/login/${payload.name}?organizationId=${payload.organization}`,
       enforceTrustedUris: payload.enforceTrustedUris,
       expiration: payload.expiration || 0,
       metadata: payload.metadata || '',
       name: payload.name || '',
       organization: payload.organization || '',
       provider: payload.provider || '',
-      relyingPartyIdentifier: payload.relyingPartyIdentifier,
+      relyingPartyIdentifier: payload.relyingPartyIdentifier || `https://${payload.organization}.org.coveo.com/rest/search/v2/login/${payload.name}?organizationId=${payload.organization}`,
     };
   }
  
