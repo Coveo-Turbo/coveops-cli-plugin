@@ -32,6 +32,13 @@ USAGE
 * [`coveops hello PERSON`](#coveops-hello-person)
 * [`coveops hello world`](#coveops-hello-world)
 * [`coveops help [COMMAND]`](#coveops-help-command)
+* [`coveops org commerce listings create`](#coveops-org-commerce-listings-create)
+* [`coveops org commerce listings delete`](#coveops-org-commerce-listings-delete)
+* [`coveops org commerce listings get`](#coveops-org-commerce-listings-get)
+* [`coveops org commerce listings global get`](#coveops-org-commerce-listings-global-get)
+* [`coveops org commerce listings global update`](#coveops-org-commerce-listings-global-update)
+* [`coveops org commerce listings list`](#coveops-org-commerce-listings-list)
+* [`coveops org commerce listings update NAME`](#coveops-org-commerce-listings-update-name)
 * [`coveops org search authentication create NAME`](#coveops-org-search-authentication-create-name)
 * [`coveops org search authentication delete ID`](#coveops-org-search-authentication-delete-id)
 * [`coveops org search authentication list`](#coveops-org-search-authentication-list)
@@ -110,6 +117,168 @@ DESCRIPTION
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v6.2.20/src/commands/help.ts)_
+
+## `coveops org commerce listings create`
+
+Create a new listing configuration in the organization
+
+```
+USAGE
+  $ coveops org commerce listings create -i <value> -d <value> -f <value> -n <value>
+
+FLAGS
+  -d, --displayName=<value>  (required) Display name of the listing configuration
+  -f, --filter=<value>       (required) Filter query for the listing configuration
+  -i, --configFile=<value>   (required) Path to JSON file containing the full listing configuration
+  -n, --name=<value>         (required) Name of the listing configuration
+
+DESCRIPTION
+  Create a new listing configuration in the organization
+
+EXAMPLES
+  $ coveops org commerce listings create --name "electronics" --displayName "Electronics" --filter "@category==electronics" --catalogId "default"
+```
+
+_See code: [src/commands/org/commerce/listings/create.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.3.0/src/commands/org/commerce/listings/create.ts)_
+
+## `coveops org commerce listings delete`
+
+Delete a listing configuration in an organization
+
+```
+USAGE
+  $ coveops org commerce listings delete -c <value>
+
+FLAGS
+  -c, --configId=<value>  (required) The unique identifier of the listing configuration.
+
+DESCRIPTION
+  Delete a listing configuration in an organization
+
+EXAMPLES
+  $ coveops org commerce listings delete --catalogId default
+```
+
+_See code: [src/commands/org/commerce/listings/delete.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.3.0/src/commands/org/commerce/listings/delete.ts)_
+
+## `coveops org commerce listings get`
+
+Get a specific listing configuration
+
+```
+USAGE
+  $ coveops org commerce listings get -c <value> [--json]
+
+FLAGS
+  -c, --configId=<value>  (required) The unique identifier of the listing configuration.
+
+GLOBAL FLAGS
+  --json  Format output as json.
+
+DESCRIPTION
+  Get a specific listing configuration
+
+EXAMPLES
+  $ coveops org commerce listings get --configId default
+```
+
+_See code: [src/commands/org/commerce/listings/get.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.3.0/src/commands/org/commerce/listings/get.ts)_
+
+## `coveops org commerce listings global get`
+
+Get the global listing configuration for a catalog
+
+```
+USAGE
+  $ coveops org commerce listings global get -t <value>
+
+FLAGS
+  -t, --trackingId=<value>  (required) The unique identifier of the tracking target.
+
+DESCRIPTION
+  Get the global listing configuration for a catalog
+
+EXAMPLES
+  $ coveops org commerce listings global get --trackingId my-tracking-id
+```
+
+_See code: [src/commands/org/commerce/listings/global/get.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.3.0/src/commands/org/commerce/listings/global/get.ts)_
+
+## `coveops org commerce listings global update`
+
+Update the global listing configuration
+
+```
+USAGE
+  $ coveops org commerce listings global update -i <value>
+
+FLAGS
+  -i, --configFile=<value>  (required) Path to JSON file containing the global listing configuration
+
+DESCRIPTION
+  Update the global listing configuration
+
+EXAMPLES
+  $ coveops org commerce listings global update --configFile path/to/config.json
+```
+
+_See code: [src/commands/org/commerce/listings/global/update.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.3.0/src/commands/org/commerce/listings/global/update.ts)_
+
+## `coveops org commerce listings list`
+
+List all listing configurations of an organization
+
+```
+USAGE
+  $ coveops org commerce listings list -t <value> [--json] [-p <value>] [-P <value>]
+
+FLAGS
+  -P, --perPage=<value>     [default: 10] The number of items per page.
+  -p, --page=<value>        The page number to retrieve.
+  -t, --trackingId=<value>  (required) The unique identifier of the tracking target.
+
+GLOBAL FLAGS
+  --json  Format output as json.
+
+DESCRIPTION
+  List all listing configurations of an organization
+
+EXAMPLES
+  $ coveops org commerce listings list --trackingId my-tracking-id
+
+  $ coveops org commerce listings list --trackingId my-tracking-id --page 1 --perPage 20
+```
+
+_See code: [src/commands/org/commerce/listings/list.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.3.0/src/commands/org/commerce/listings/list.ts)_
+
+## `coveops org commerce listings update NAME`
+
+Update a specific listing configuration
+
+```
+USAGE
+  $ coveops org commerce listings update NAME -c <value> [-i <value>] [-d <value>] [-f <value>] [-a]
+
+ARGUMENTS
+  NAME  Name of the listing configuration to update
+
+FLAGS
+  -a, --isActive             Set the active status of the listing configuration
+  -c, --configId=<value>     (required) The unique identifier of the listing configuration.
+  -d, --displayName=<value>  New display name for the listing configuration
+  -f, --filter=<value>       New filter query for the listing configuration
+  -i, --configFile=<value>   Path to JSON file containing the full listing configuration
+
+DESCRIPTION
+  Update a specific listing configuration
+
+EXAMPLES
+  $ coveops org commerce listings update electronics --displayName "Electronics Updated" --configId default
+
+  $ coveops org commerce listings update electronics --configFile path/to/config.json --configId default
+```
+
+_See code: [src/commands/org/commerce/listings/update.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.3.0/src/commands/org/commerce/listings/update.ts)_
 
 ## `coveops org search authentication create NAME`
 
