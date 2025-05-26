@@ -1,0 +1,65 @@
+{
+  "name": "electronics",
+  "displayName": "Electronics",
+  "filter": "@category==electronics",
+  "resultTemplates": [
+    {
+      "layout": {
+        "default": {
+          "title": "${raw.ec_name}",
+          "description": "${raw.ec_description}",
+          "image": "${raw.ec_images.first}",
+          "price": "${raw.ec_price}"
+        }
+      }
+    }
+  ],
+  "sorts": [
+    {
+      "name": "Relevance",
+      "sortCriteria": [
+        {
+          "field": "relevancy",
+          "order": "DESC"
+        }
+      ]
+    },
+    {
+      "name": "Price Low to High",
+      "sortCriteria": [
+        {
+          "field": "ec_price",
+          "order": "ASC"
+        }
+      ]
+    }
+  ],
+  "facets": [
+    {
+      "field": "ec_category",
+      "displayName": "Category",
+      "type": "checkbox"
+    },
+    {
+      "field": "ec_price",
+      "displayName": "Price",
+      "type": "slider",
+      "ranges": [
+        {
+          "start": 0,
+          "end": 50,
+          "label": "Under $50"
+        },
+        {
+          "start": 50,
+          "end": 100,
+          "label": "$50 - $100"
+        },
+        {
+          "start": 100,
+          "label": "Over $100"
+        }
+      ]
+    }
+  ]
+}
