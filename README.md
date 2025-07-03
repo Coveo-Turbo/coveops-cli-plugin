@@ -20,7 +20,7 @@ $ npm install -g coveops-cli-plugin
 $ coveops COMMAND
 running command...
 $ coveops (--version)
-coveops-cli-plugin/0.4.0 darwin-arm64 node-v20.16.0
+coveops-cli-plugin/0.5.0 darwin-arm64 node-v22.1.0
 $ coveops --help [COMMAND]
 USAGE
   $ coveops COMMAND
@@ -78,7 +78,7 @@ EXAMPLES
   hello friend from oclif! (./src/commands/hello/index.ts)
 ```
 
-_See code: [src/commands/hello/index.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.4.0/src/commands/hello/index.ts)_
+_See code: [src/commands/hello/index.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.5.0/src/commands/hello/index.ts)_
 
 ## `coveops hello world`
 
@@ -96,7 +96,7 @@ EXAMPLES
   hello world! (./src/commands/hello/world.ts)
 ```
 
-_See code: [src/commands/hello/world.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.4.0/src/commands/hello/world.ts)_
+_See code: [src/commands/hello/world.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.5.0/src/commands/hello/world.ts)_
 
 ## `coveops help [COMMAND]`
 
@@ -139,7 +139,7 @@ EXAMPLES
   $ coveops org commerce listings create --name "electronics" --displayName "Electronics" --filter "@category==electronics" --catalogId "default"
 ```
 
-_See code: [src/commands/org/commerce/listings/create.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.4.0/src/commands/org/commerce/listings/create.ts)_
+_See code: [src/commands/org/commerce/listings/create.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.5.0/src/commands/org/commerce/listings/create.ts)_
 
 ## `coveops org commerce listings delete`
 
@@ -159,7 +159,7 @@ EXAMPLES
   $ coveops org commerce listings delete --catalogId default
 ```
 
-_See code: [src/commands/org/commerce/listings/delete.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.4.0/src/commands/org/commerce/listings/delete.ts)_
+_See code: [src/commands/org/commerce/listings/delete.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.5.0/src/commands/org/commerce/listings/delete.ts)_
 
 ## `coveops org commerce listings get`
 
@@ -182,7 +182,7 @@ EXAMPLES
   $ coveops org commerce listings get --configId default
 ```
 
-_See code: [src/commands/org/commerce/listings/get.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.4.0/src/commands/org/commerce/listings/get.ts)_
+_See code: [src/commands/org/commerce/listings/get.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.5.0/src/commands/org/commerce/listings/get.ts)_
 
 ## `coveops org commerce listings global get`
 
@@ -202,7 +202,7 @@ EXAMPLES
   $ coveops org commerce listings global get --trackingId my-tracking-id
 ```
 
-_See code: [src/commands/org/commerce/listings/global/get.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.4.0/src/commands/org/commerce/listings/global/get.ts)_
+_See code: [src/commands/org/commerce/listings/global/get.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.5.0/src/commands/org/commerce/listings/global/get.ts)_
 
 ## `coveops org commerce listings global update`
 
@@ -222,7 +222,7 @@ EXAMPLES
   $ coveops org commerce listings global update --configFile path/to/config.json
 ```
 
-_See code: [src/commands/org/commerce/listings/global/update.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.4.0/src/commands/org/commerce/listings/global/update.ts)_
+_See code: [src/commands/org/commerce/listings/global/update.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.5.0/src/commands/org/commerce/listings/global/update.ts)_
 
 ## `coveops org commerce listings list`
 
@@ -249,7 +249,7 @@ EXAMPLES
   $ coveops org commerce listings list --trackingId my-tracking-id --page 1 --perPage 20
 ```
 
-_See code: [src/commands/org/commerce/listings/list.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.4.0/src/commands/org/commerce/listings/list.ts)_
+_See code: [src/commands/org/commerce/listings/list.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.5.0/src/commands/org/commerce/listings/list.ts)_
 
 ## `coveops org commerce listings update NAME`
 
@@ -278,7 +278,7 @@ EXAMPLES
   $ coveops org commerce listings update electronics --configFile path/to/config.json --configId default
 ```
 
-_See code: [src/commands/org/commerce/listings/update.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.4.0/src/commands/org/commerce/listings/update.ts)_
+_See code: [src/commands/org/commerce/listings/update.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.5.0/src/commands/org/commerce/listings/update.ts)_
 
 ## `coveops org search authentication create NAME`
 
@@ -313,7 +313,7 @@ EXAMPLES
   $ coveops org search authentication create --type saml "My SAML Provider" --metadataUrl "https://example.com/metadata.xml"
 ```
 
-_See code: [src/commands/org/search/authentication/create.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.4.0/src/commands/org/search/authentication/create.ts)_
+_See code: [src/commands/org/search/authentication/create.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.5.0/src/commands/org/search/authentication/create.ts)_
 
 ## `coveops org search authentication delete ID`
 
@@ -337,7 +337,7 @@ EXAMPLES
   $ coveops org search authentication delete 73404dc5-1111-1111-1111-0e5144482521
 ```
 
-_See code: [src/commands/org/search/authentication/delete.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.4.0/src/commands/org/search/authentication/delete.ts)_
+_See code: [src/commands/org/search/authentication/delete.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.5.0/src/commands/org/search/authentication/delete.ts)_
 
 ## `coveops org search authentication list`
 
@@ -362,7 +362,7 @@ EXAMPLES
   $ coveops org search authentication list
 ```
 
-_See code: [src/commands/org/search/authentication/list.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.4.0/src/commands/org/search/authentication/list.ts)_
+_See code: [src/commands/org/search/authentication/list.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.5.0/src/commands/org/search/authentication/list.ts)_
 
 ## `coveops org search authentication update ID`
 
@@ -398,7 +398,7 @@ EXAMPLES
   $ coveops org search authentication update --type saml 73404dc5-1111-1111-1111-0e5144482521 --relyingPartyIdentifier https://platform-ca.cloud.coveo.com
 ```
 
-_See code: [src/commands/org/search/authentication/update.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.4.0/src/commands/org/search/authentication/update.ts)_
+_See code: [src/commands/org/search/authentication/update.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.5.0/src/commands/org/search/authentication/update.ts)_
 
 ## `coveops org vaults create`
 
@@ -421,7 +421,7 @@ DESCRIPTION
   Create a new Vault parameter in the specified organization
 ```
 
-_See code: [src/commands/org/vaults/create.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.4.0/src/commands/org/vaults/create.ts)_
+_See code: [src/commands/org/vaults/create.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.5.0/src/commands/org/vaults/create.ts)_
 
 ## `coveops org vaults list`
 
@@ -441,7 +441,7 @@ EXAMPLES
   coveo org:vaults:list
 ```
 
-_See code: [src/commands/org/vaults/list.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.4.0/src/commands/org/vaults/list.ts)_
+_See code: [src/commands/org/vaults/list.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.5.0/src/commands/org/vaults/list.ts)_
 
 ## `coveops plugins`
 
