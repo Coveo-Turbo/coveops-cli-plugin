@@ -37,7 +37,7 @@ export default class CreateVault extends Command {
     const {flags} = await this.parse(CreateVault);
 
     // Load organization and access token from Coveo CLI configuration
-    const {accessToken, organization} = this.configuration.get();
+    const {accessToken, organization, region} = this.configuration.get();
 
     if (!organization || !accessToken) {
       this.error('Organization ID or access token is not configured in the Coveo CLI. Please log in using the CLI.');
@@ -47,6 +47,7 @@ export default class CreateVault extends Command {
     const platformClient = new PlatformClient({
       accessToken: () => accessToken,
       organizationId: organization,
+      region
     });
 
     try {

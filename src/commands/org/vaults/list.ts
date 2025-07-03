@@ -12,7 +12,7 @@ export default class ListVaults extends Command {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const {flags} = await this.parse(ListVaults);
 
-    const {accessToken, organization} = this.configuration.get();
+    const {accessToken, organization, region} = this.configuration.get();
 
     if (!organization || !accessToken) {
       this.error('Organization ID or access token is not configured in the Coveo CLI. Please log in using the CLI.');
@@ -21,6 +21,7 @@ export default class ListVaults extends Command {
     const platformClient = new PlatformClient({
       accessToken: () => accessToken,
       organizationId: organization,
+      region
     });
 
     const theme = {
