@@ -1,5 +1,6 @@
 import {
   DefaultConfig,
+  type Configuration,
 } from '@coveo/cli-commons/config/config';
 import {captureOutput} from '@oclif/test';
 import {expect} from 'chai';
@@ -40,7 +41,7 @@ describe('org:commerce:troubleshoot:deploy', () => {
       environment: 'prod',
       organization: 'cfg-org',
       region: 'us',
-    }) as never);
+    }) as Configuration);
 
     commerceTroubleshootDeployTestHooks.setLoadDeployerModule(async () => ({
       async deployTroubleshootConsole(request) {
@@ -115,7 +116,7 @@ describe('org:commerce:troubleshoot:deploy', () => {
       environment: 'prod',
       organization: 'ignored-org',
       region: 'us',
-    }) as never);
+    }) as Configuration);
 
     commerceTroubleshootDeployTestHooks.setLoadDeployerModule(async () => ({
       async deployTroubleshootConsole(request) {

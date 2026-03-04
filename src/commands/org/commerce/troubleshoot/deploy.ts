@@ -189,6 +189,7 @@ export default class CommerceTroubleshootDeploy extends Command {
     const environment = readString(flags.environment) ?? readString(resolvedConfiguration.environment);
     const hostedPageId = readString(flags.pageId);
     const trackingId = readString(flags.trackingId);
+    const hostedPageName = readString(flags.pageName);
 
     if (!organizationId) {
       this.error('Missing organization ID. Provide --organization or set it with coveo config:set organization <ID>.');
@@ -196,6 +197,10 @@ export default class CommerceTroubleshootDeploy extends Command {
 
     if (!accessToken) {
       this.error('Missing access token. Provide --access-token or set it with coveo config:set accessToken <TOKEN>.');
+    }
+
+    if (!hostedPageName) {
+      this.error('Missing page name. Provide a non-empty value for --page-name.');
     }
 
     const keyStrategy = this.resolveKeyStrategy(flags);
@@ -216,7 +221,7 @@ export default class CommerceTroubleshootDeploy extends Command {
         viewUrl: flags.viewUrl,
       },
       target: {
-        hostedPageName: flags.pageName,
+        hostedPageName,
         organizationId,
         ...(hostedPageId ? {hostedPageId} : {}),
         ...(region ? {region} : {}),
