@@ -352,6 +352,49 @@ EXAMPLES
 
 _See code: [src/commands/org/commerce/troubleshoot/deploy.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.7.0/src/commands/org/commerce/troubleshoot/deploy.ts)_
 
+## `coveops org commerce troubleshoot deploy`
+
+Deploy or update the Commerce Troubleshoot Console hosted page through @coveops/commerce-troubleshoot-deployer.
+
+```
+USAGE
+  $ coveops org commerce troubleshoot deploy --pageName <value> [--accessToken <value>] [--cmhToken <value>] [--country <value>]
+    [--currency <value>] [--dryRun] [--engineToken <value>] [--environment <value>] [--language <value>] [--organization
+    <value>] [--pageId <value>] [--region <value>] [--rotate] [--trackingId <value>] [--viewUrl <value>]
+
+FLAGS
+  --accessToken=<value>   Platform access token. Falls back to coveo config value accessToken.
+  --cmhToken=<value>      CMH API key used when --engine-token is provided (provided key strategy).
+  --country=<value>       [default: US] Runtime default country code for hosted app payload.
+  --currency=<value>      [default: USD] Runtime default currency code for hosted app payload.
+  --dryRun                Generate bundle and config without running coveo deploy.
+  --engineToken=<value>   Engine API key. Providing this switches key strategy to provided mode.
+  --environment=<value>   Platform environment. Falls back to coveo config value environment.
+  --language=<value>      [default: en] Runtime default language for hosted app payload.
+  --organization=<value>  Organization ID. Falls back to coveo config value organization.
+  --pageId=<value>        Hosted page ID to update directly.
+  --pageName=<value>      (required) Hosted page name for deploy target.
+  --region=<value>        Platform region. Falls back to coveo config value region.
+  --rotate                Rotate managed API keys before deploy (managed key strategy only).
+  --trackingId=<value>    Runtime default tracking ID for hosted app payload.
+  --viewUrl=<value>       [default: https://www.example.com/] Runtime default product listing URL for hosted app
+                          payload.
+
+DESCRIPTION
+  Deploy or update the Commerce Troubleshoot Console hosted page through @coveops/commerce-troubleshoot-deployer.
+
+EXAMPLES
+  $ coveops org commerce troubleshoot deploy --page-name commerce-troubleshoot-console
+
+  $ coveops org commerce troubleshoot deploy --page-name commerce-troubleshoot-console --engine-token <ENGINE_TOKEN> --cmh-token <CMH_TOKEN>
+
+  $ coveops org commerce troubleshoot deploy --page-name commerce-troubleshoot-console --page-id f8f9b7d1-1f44-4f7c-9854-a2b0a4df1c13
+
+  $ coveops org commerce troubleshoot deploy --page-name commerce-troubleshoot-console  # Name-only deploy updates an existing page if one matches the name.
+```
+
+_See code: [src/commands/org/commerce/troubleshoot/deploy.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.5.0/src/commands/org/commerce/troubleshoot/deploy.ts)_
+
 ## `coveops org search authentication create NAME`
 
 Create a new Authentication provider (SAML or Sharepoint Claims) in the specified organization
