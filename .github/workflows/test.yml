@@ -1,10 +1,30 @@
 name: tests
 on:
+  pull_request:
   push:
     branches-ignore: [main]
   workflow_dispatch:
 
 jobs:
+  readme-sync-check:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - run: npm exec oclif readme
+      - name: Validate README sync
+        run: |
+          if ! git diff --exit-code -- README.md; then
+            echo "::error file=README.md,line=1::README.md is out of sync with Oclif command docs. Run 'npm exec oclif readme' and commit the result."
+            exit 1
+          fi
+
   unit-tests:
     strategy:
       matrix:
