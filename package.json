@@ -19,6 +19,7 @@
   "dependencies": {
     "@coveo/cli-commons": "^2.9.4",
     "@coveo/platform-client": "^57.12.0",
+    "@coveops/commerce-troubleshoot-deployer": "^0.1.0",
     "@oclif/core": "^4",
     "@oclif/plugin-help": "^6",
     "@oclif/plugin-plugins": "^5"

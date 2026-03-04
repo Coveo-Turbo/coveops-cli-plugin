@@ -27,6 +27,34 @@ USAGE
 ...
 ```
 <!-- usagestop -->
+## Commerce Troubleshoot Console Deploy Examples
+
+Managed key strategy (default):
+
+```sh
+coveops org commerce troubleshoot deploy --page-name commerce-troubleshoot-console
+```
+
+Provided tokens strategy:
+
+```sh
+coveops org commerce troubleshoot deploy --page-name commerce-troubleshoot-console --engine-token <ENGINE_TOKEN> --cmh-token <CMH_TOKEN>
+```
+
+Update an existing hosted page with a known ID:
+
+```sh
+coveops org commerce troubleshoot deploy --page-name commerce-troubleshoot-console --page-id <HOSTED_PAGE_ID>
+```
+
+Name-only update behavior:
+
+```sh
+coveops org commerce troubleshoot deploy --page-name commerce-troubleshoot-console
+```
+
+When `--page-id` is omitted, the deployer resolves by page name first: if a hosted page already matches that name, it updates it; otherwise deployment can create a new hosted page.
+
 # Commands
 <!-- commands -->
 * [`coveops hello PERSON`](#coveops-hello-person)
