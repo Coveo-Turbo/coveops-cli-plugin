@@ -1,10 +1,8 @@
 import {Config} from '@coveo/cli-commons/config/config';
 import {PlatformClient} from '@coveo/platform-client';
-import {Command, Flags} from '@oclif/core';
-import ux from '@oclif/core/ux'
+import {CliUx, Command, Flags} from '@oclif/core';
 
 import {commerceBaseUrl} from '../../../../../utils/commerce-utils.js';
-import { theme } from '../../../../../utils/ux-utils.js';
 
 
 export default class CommerceListingsGlobalGet extends Command {
@@ -48,7 +46,7 @@ export default class CommerceListingsGlobalGet extends Command {
       // eslint-disable-next-line dot-notation
       const response = await platformClient['API'].get(`${baseUrl}/listings/global${queryString ? `?${queryString}` : ''}`);
 
-      this.log(ux.colorizeJson(response, {theme}));
+      CliUx.ux.styledJSON(response);
 
       return response;
 

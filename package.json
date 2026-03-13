@@ -20,13 +20,14 @@
     "@coveo/cli-commons": "^2.9.4",
     "@coveo/platform-client": "^57.12.0",
     "@coveops/commerce-troubleshoot-deployer": "^0.1.0",
-    "@oclif/core": "^4",
-    "@oclif/plugin-help": "^6",
-    "@oclif/plugin-plugins": "^5"
+    "@oclif/core": "1.24.0",
+    "@oclif/plugin-help": "5.1.23",
+    "@oclif/plugin-plugins": "2.1.12",
+    "tslib": "2.5.0"
   },
   "devDependencies": {
     "@oclif/prettier-config": "^0.2.1",
-    "@oclif/test": "^4",
+    "@oclif/test": "2.2.21",
     "@types/chai": "^4",
     "@types/mocha": "^10",
     "@types/node": "^18",
@@ -36,7 +37,7 @@
     "eslint-config-oclif-typescript": "^3",
     "eslint-config-prettier": "^9",
     "mocha": "^10",
-    "oclif": "^4",
+    "oclif": "3.4.3",
     "shx": "^0.3.3",
     "ts-node": "^10",
     "typescript": "^5"

@@ -1,13 +1,11 @@
 import {Config} from '@coveo/cli-commons/config/config';
 import {PlatformClient} from '@coveo/platform-client';
-import {Args, Command, Flags} from '@oclif/core'
+import {Command, Flags} from '@oclif/core'
 
 import { AuthenticationProviderType, searchAuthenticationBaseUrl } from '../../../../utils/authentication-provider-utils.js';
 
 export default class OrgSearchAuthenticationDelete extends Command {
-  static override args = {
-    id: Args.string({description: 'Id of the authentication provider to delete', name: 'id', required: true})
-  }
+  static override args = [{description: 'Id of the authentication provider to delete', name: 'id', required: true}]
 
   public static override description = 'Deletes an existing Authentication provider (SAML or Sharepoint Claims) in the specified organization'
 

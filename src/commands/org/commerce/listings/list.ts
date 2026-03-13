@@ -1,10 +1,8 @@
 import {Config} from '@coveo/cli-commons/config/config';
 import {PlatformClient} from '@coveo/platform-client';
-import {Command, Flags} from '@oclif/core';
-import ux from '@oclif/core/ux'
+import {CliUx, Command, Flags} from '@oclif/core';
 
 import {commerceBaseUrl} from '../../../../utils/commerce-utils.js';
-import { theme } from '../../../../utils/ux-utils.js';
 
 export default class CommerceListingsList extends Command {
   static description = 'List all listing configurations of an organization';
@@ -64,7 +62,7 @@ export default class CommerceListingsList extends Command {
       if ((response.items as Array<unknown>).length === 0) {
         this.log('No Listings found.');
       } else {
-        this.log(ux.colorizeJson(response, {theme}));
+        CliUx.ux.styledJSON(response);
       }
 
       return response;

@@ -1,7 +1,6 @@
 import {Config} from '@coveo/cli-commons/config/config';
 import {PageModel, PlatformClient, VaultEntryModel } from '@coveo/platform-client';
-import {Command} from '@oclif/core';
-import ux from '@oclif/core/ux'
+import {CliUx, Command} from '@oclif/core';
 
 export default class ListVaults extends Command {
   public static description = 'List all Vault parameters in the specified organization';
@@ -24,25 +23,13 @@ export default class ListVaults extends Command {
       region
     });
 
-    const theme = {
-      boolean: 'cyan',
-      brace: '#00FFFF',
-      bracket: 'rgb(0, 255, 255)',
-      colon: 'dim',
-      comma: 'yellow',
-      key: 'bold',
-      null: 'redBright',
-      number: 'blue',
-      string: 'green',
-    }
-
     try {
       this.log('Fetching Vault parameters...');
       const vaults = await platformClient.vault.list();
       if (vaults.items.length === 0) {
         this.log('No Vault parameters found.');
       } else {
-        this.log(ux.colorizeJson(vaults, {theme}));
+        CliUx.ux.styledJSON(vaults);
       }
 
       return vaults;

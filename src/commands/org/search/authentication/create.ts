@@ -1,13 +1,11 @@
 import {Config} from '@coveo/cli-commons/config/config';
 import {PlatformClient} from '@coveo/platform-client';
-import {Args, Command, Flags} from '@oclif/core'
+import {Command, Flags} from '@oclif/core'
 
 import { AuthenticationProviderType, buildAuthProviderPayload, downloadMetadata, searchAuthenticationBaseUrl } from '../../../../utils/authentication-provider-utils.js';
 
 export default class OrgSearchAuthenticationCreate extends Command {
-  public static override args = {
-    name: Args.string({description: 'Name for the authentication provider', name: 'name', required: true})
-  }
+  public static override args = [{description: 'Name for the authentication provider', name: 'name', required: true}]
 
   public static override description = 'Create a new Authentication provider (SAML or Sharepoint Claims) in the specified organization'
 

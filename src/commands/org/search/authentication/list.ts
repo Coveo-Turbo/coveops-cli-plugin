@@ -1,12 +1,11 @@
 import {Config} from '@coveo/cli-commons/config/config';
 import {PlatformClient} from '@coveo/platform-client';
-import {Command, Flags} from '@oclif/core'
-import ux from '@oclif/core/ux'
+import {CliUx, Command, Flags} from '@oclif/core'
 
 import { AuthenticationProviderType, searchAuthenticationBaseUrl } from '../../../../utils/authentication-provider-utils.js';
 
 export default class OrgSearchAuthenticationList extends Command {
-  static args = {}
+  static args = []
 
   static override description = 'List all authentication providers for an organization';
   public static enableJsonFlag = true;
@@ -37,18 +36,6 @@ export default class OrgSearchAuthenticationList extends Command {
       organizationId: organization,
     });
 
-    const theme = {
-      boolean: 'cyan',
-      brace: '#00FFFF',
-      bracket: 'rgb(0, 255, 255)',
-      colon: 'dim',
-      comma: 'yellow',
-      key: 'bold',
-      null: 'redBright',
-      number: 'blue',
-      string: 'green',
-    }
-
     try {
       this.log('Fetching Authentication Providers...');
       const type = flags.type ?? '';
@@ -59,7 +46,7 @@ export default class OrgSearchAuthenticationList extends Command {
       if (authProviders.length === 0) {
         this.log('No Authentication providers found.');
       } else {
-        this.log(ux.colorizeJson(authProviders, {theme}));
+        CliUx.ux.styledJSON(authProviders);
       }
 
       return authProviders;

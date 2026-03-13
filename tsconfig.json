@@ -9,7 +9,7 @@
     "outDir": "dist",
     "rootDir": "src",
     "strict": true,
-    "target": "es2022",
+    "target": "es2020",
     "moduleResolution": "node16",
     "esModuleInterop": true,
     "resolveJsonModule": true,
@@ -18,6 +18,5 @@
   "include": [
     "./src/**/*",
     "./node_modules/@coveo/cli-commons/lib/**/*.d.ts"
-  ],
-  
+  ]
 }

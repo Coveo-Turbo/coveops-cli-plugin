@@ -1,7 +1,7 @@
 import {Command} from '@oclif/core'
 
 export default class World extends Command {
-  static args = {}
+  static args = []
 
   static description = 'Say hello world'
 

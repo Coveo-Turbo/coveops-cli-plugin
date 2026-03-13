@@ -1,9 +1,7 @@
-import {Args, Command, Flags} from '@oclif/core'
+import {Command, Flags} from '@oclif/core'
 
 export default class Hello extends Command {
-  static args = {
-    person: Args.string({description: 'Person to say hello to', name: 'person', required: true}),
-  }
+  static args = [{description: 'Person to say hello to', name: 'person', required: true}]
 
   static description = 'Say hello'
 

@@ -1,16 +1,15 @@
 import {Config} from '@coveo/cli-commons/config/config';
 import {PlatformClient} from '@coveo/platform-client';
-import {Args, Command, Flags} from '@oclif/core';
+import {Command, Flags} from '@oclif/core';
 
 import {Facet, ListingConfigurationModel, ResultTemplate, Sort, commerceBaseUrl, validateListingConfiguration} from '../../../../utils/commerce-utils.js';
 
 export default class CommerceListingsUpdate extends Command {
-  static args = {
-    name: Args.string({
+  static args = [{
       description: 'Name of the listing configuration to update',
+      name: 'name',
       required: true,
-    }),
-  };
+    }];
 
   static description = 'Update a specific listing configuration';
 
