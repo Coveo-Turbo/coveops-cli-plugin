@@ -20,7 +20,7 @@ $ npm install -g coveops-cli-plugin
 $ coveops COMMAND
 running command...
 $ coveops (--version)
-coveops-cli-plugin/0.7.0 darwin-arm64 node-v22.17.0
+coveops-cli-plugin/0.7.1 darwin-arm64 node-v22.17.0
 $ coveops --help [COMMAND]
 USAGE
   $ coveops COMMAND
@@ -75,14 +75,13 @@ When `--page-id` is omitted, the deployer resolves by page name first: if a host
 * [`coveops org vaults create`](#coveops-org-vaults-create)
 * [`coveops org vaults list`](#coveops-org-vaults-list)
 * [`coveops plugins`](#coveops-plugins)
-* [`coveops plugins add PLUGIN`](#coveops-plugins-add-plugin)
+* [`coveops plugins:install PLUGIN...`](#coveops-pluginsinstall-plugin)
 * [`coveops plugins:inspect PLUGIN...`](#coveops-pluginsinspect-plugin)
-* [`coveops plugins install PLUGIN`](#coveops-plugins-install-plugin)
-* [`coveops plugins link PATH`](#coveops-plugins-link-path)
-* [`coveops plugins remove [PLUGIN]`](#coveops-plugins-remove-plugin)
-* [`coveops plugins reset`](#coveops-plugins-reset)
-* [`coveops plugins uninstall [PLUGIN]`](#coveops-plugins-uninstall-plugin)
-* [`coveops plugins unlink [PLUGIN]`](#coveops-plugins-unlink-plugin)
+* [`coveops plugins:install PLUGIN...`](#coveops-pluginsinstall-plugin-1)
+* [`coveops plugins:link PLUGIN`](#coveops-pluginslink-plugin)
+* [`coveops plugins:uninstall PLUGIN...`](#coveops-pluginsuninstall-plugin)
+* [`coveops plugins:uninstall PLUGIN...`](#coveops-pluginsuninstall-plugin-1)
+* [`coveops plugins:uninstall PLUGIN...`](#coveops-pluginsuninstall-plugin-2)
 * [`coveops plugins update`](#coveops-plugins-update)
 
 ## `coveops hello PERSON`
@@ -91,7 +90,7 @@ Say hello
 
 ```
 USAGE
-  $ coveops hello PERSON -f <value>
+  $ coveops hello [PERSON] -f <value>
 
 ARGUMENTS
   PERSON  Person to say hello to
@@ -107,7 +106,7 @@ EXAMPLES
   hello friend from oclif! (./src/commands/hello/index.ts)
 ```
 
-_See code: [src/commands/hello/index.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.7.0/src/commands/hello/index.ts)_
+_See code: [dist/commands/hello/index.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.7.1/dist/commands/hello/index.ts)_
 
 ## `coveops hello world`
 
@@ -125,18 +124,16 @@ EXAMPLES
   hello world! (./src/commands/hello/world.ts)
 ```
 
-_See code: [src/commands/hello/world.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.7.0/src/commands/hello/world.ts)_
-
 ## `coveops help [COMMAND]`
 
 Display help for coveops.
 
 ```
 USAGE
-  $ coveops help [COMMAND...] [-n]
+  $ coveops help [COMMAND] [-n]
 
 ARGUMENTS
-  COMMAND...  Command to show help for.
+  COMMAND  Command to show help for.
 
 FLAGS
   -n, --nested-commands  Include all nested commands in the output.
@@ -145,7 +142,7 @@ DESCRIPTION
   Display help for coveops.
 ```
 
-_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v6.2.20/src/commands/help.ts)_
+_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v5.1.23/src/commands/help.ts)_
 
 ## `coveops org commerce listings create`
 
@@ -168,8 +165,6 @@ EXAMPLES
   $ coveops org commerce listings create --name "electronics" --displayName "Electronics" --filter "@category==electronics" --catalogId "default"
 ```
 
-_See code: [src/commands/org/commerce/listings/create.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.7.0/src/commands/org/commerce/listings/create.ts)_
-
 ## `coveops org commerce listings delete`
 
 Delete a listing configuration in an organization
@@ -187,8 +182,6 @@ DESCRIPTION
 EXAMPLES
   $ coveops org commerce listings delete --catalogId default
 ```
-
-_See code: [src/commands/org/commerce/listings/delete.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.7.0/src/commands/org/commerce/listings/delete.ts)_
 
 ## `coveops org commerce listings get`
 
@@ -211,8 +204,6 @@ EXAMPLES
   $ coveops org commerce listings get --configId default
 ```
 
-_See code: [src/commands/org/commerce/listings/get.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.7.0/src/commands/org/commerce/listings/get.ts)_
-
 ## `coveops org commerce listings global get`
 
 Get the global listing configuration for a catalog
@@ -231,8 +222,6 @@ EXAMPLES
   $ coveops org commerce listings global get --trackingId my-tracking-id
 ```
 
-_See code: [src/commands/org/commerce/listings/global/get.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.7.0/src/commands/org/commerce/listings/global/get.ts)_
-
 ## `coveops org commerce listings global update`
 
 Update the global listing configuration
@@ -250,8 +239,6 @@ DESCRIPTION
 EXAMPLES
   $ coveops org commerce listings global update --configFile path/to/config.json
 ```
-
-_See code: [src/commands/org/commerce/listings/global/update.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.7.0/src/commands/org/commerce/listings/global/update.ts)_
 
 ## `coveops org commerce listings list`
 
@@ -278,15 +265,13 @@ EXAMPLES
   $ coveops org commerce listings list --trackingId my-tracking-id --page 1 --perPage 20
 ```
 
-_See code: [src/commands/org/commerce/listings/list.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.7.0/src/commands/org/commerce/listings/list.ts)_
-
 ## `coveops org commerce listings update NAME`
 
 Update a specific listing configuration
 
 ```
 USAGE
-  $ coveops org commerce listings update NAME -c <value> [-i <value>] [-d <value>] [-f <value>] [-a]
+  $ coveops org commerce listings update [NAME] -c <value> [-i <value>] [-d <value>] [-f <value>] [-a]
 
 ARGUMENTS
   NAME  Name of the listing configuration to update
@@ -307,8 +292,6 @@ EXAMPLES
   $ coveops org commerce listings update electronics --configFile path/to/config.json --configId default
 ```
 
-_See code: [src/commands/org/commerce/listings/update.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.7.0/src/commands/org/commerce/listings/update.ts)_
-
 ## `coveops org commerce troubleshoot deploy`
 
 Deploy or update the Commerce Troubleshoot Console hosted page through @coveops/commerce-troubleshoot-deployer.
@@ -349,51 +332,6 @@ EXAMPLES
 
   $ coveops org commerce troubleshoot deploy --page-name commerce-troubleshoot-console  # Name-only deploy updates an existing page if one matches the name.
 ```
-
-_See code: [src/commands/org/commerce/troubleshoot/deploy.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.7.0/src/commands/org/commerce/troubleshoot/deploy.ts)_
-
-## `coveops org commerce troubleshoot deploy`
-
-Deploy or update the Commerce Troubleshoot Console hosted page through @coveops/commerce-troubleshoot-deployer.
-
-```
-USAGE
-  $ coveops org commerce troubleshoot deploy --pageName <value> [--accessToken <value>] [--cmhToken <value>] [--country <value>]
-    [--currency <value>] [--dryRun] [--engineToken <value>] [--environment <value>] [--language <value>] [--organization
-    <value>] [--pageId <value>] [--region <value>] [--rotate] [--trackingId <value>] [--viewUrl <value>]
-
-FLAGS
-  --accessToken=<value>   Platform access token. Falls back to coveo config value accessToken.
-  --cmhToken=<value>      CMH API key used when --engine-token is provided (provided key strategy).
-  --country=<value>       [default: US] Runtime default country code for hosted app payload.
-  --currency=<value>      [default: USD] Runtime default currency code for hosted app payload.
-  --dryRun                Generate bundle and config without running coveo deploy.
-  --engineToken=<value>   Engine API key. Providing this switches key strategy to provided mode.
-  --environment=<value>   Platform environment. Falls back to coveo config value environment.
-  --language=<value>      [default: en] Runtime default language for hosted app payload.
-  --organization=<value>  Organization ID. Falls back to coveo config value organization.
-  --pageId=<value>        Hosted page ID to update directly.
-  --pageName=<value>      (required) Hosted page name for deploy target.
-  --region=<value>        Platform region. Falls back to coveo config value region.
-  --rotate                Rotate managed API keys before deploy (managed key strategy only).
-  --trackingId=<value>    Runtime default tracking ID for hosted app payload.
-  --viewUrl=<value>       [default: https://www.example.com/] Runtime default product listing URL for hosted app
-                          payload.
-
-DESCRIPTION
-  Deploy or update the Commerce Troubleshoot Console hosted page through @coveops/commerce-troubleshoot-deployer.
-
-EXAMPLES
-  $ coveops org commerce troubleshoot deploy --page-name commerce-troubleshoot-console
-
-  $ coveops org commerce troubleshoot deploy --page-name commerce-troubleshoot-console --engine-token <ENGINE_TOKEN> --cmh-token <CMH_TOKEN>
-
-  $ coveops org commerce troubleshoot deploy --page-name commerce-troubleshoot-console --page-id f8f9b7d1-1f44-4f7c-9854-a2b0a4df1c13
-
-  $ coveops org commerce troubleshoot deploy --page-name commerce-troubleshoot-console  # Name-only deploy updates an existing page if one matches the name.
-```
-
-_See code: [src/commands/org/commerce/troubleshoot/deploy.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.5.0/src/commands/org/commerce/troubleshoot/deploy.ts)_
 
 ## `coveops org search authentication create NAME`
 
@@ -401,8 +339,8 @@ Create a new Authentication provider (SAML or Sharepoint Claims) in the specifie
 
 ```
 USAGE
-  $ coveops org search authentication create NAME -r <value> [-a <value>] [-f] [-e <value>] [-m <value>] [-p <value>] [-s <value>] [-t
-    saml|sharepoint] [-u <value>]
+  $ coveops org search authentication create [NAME] -r <value> [-a <value>] [-f] [-e <value>] [-m <value>] [-p <value>] [-s <value>]
+    [-t saml|sharepoint] [-u <value>]
 
 ARGUMENTS
   NAME  Name for the authentication provider
@@ -428,15 +366,13 @@ EXAMPLES
   $ coveops org search authentication create --type saml "My SAML Provider" --metadataUrl "https://example.com/metadata.xml"
 ```
 
-_See code: [src/commands/org/search/authentication/create.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.7.0/src/commands/org/search/authentication/create.ts)_
-
 ## `coveops org search authentication delete ID`
 
 Deletes an existing Authentication provider (SAML or Sharepoint Claims) in the specified organization
 
 ```
 USAGE
-  $ coveops org search authentication delete ID [-t saml|sharepoint]
+  $ coveops org search authentication delete [ID] [-t saml|sharepoint]
 
 ARGUMENTS
   ID  Id of the authentication provider to delete
@@ -451,8 +387,6 @@ DESCRIPTION
 EXAMPLES
   $ coveops org search authentication delete 73404dc5-1111-1111-1111-0e5144482521
 ```
-
-_See code: [src/commands/org/search/authentication/delete.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.7.0/src/commands/org/search/authentication/delete.ts)_
 
 ## `coveops org search authentication list`
 
@@ -477,15 +411,13 @@ EXAMPLES
   $ coveops org search authentication list
 ```
 
-_See code: [src/commands/org/search/authentication/list.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.7.0/src/commands/org/search/authentication/list.ts)_
-
 ## `coveops org search authentication update ID`
 
 Updates an existing Authentication provider (SAML or Sharepoint Claims) in the specified organization
 
 ```
 USAGE
-  $ coveops org search authentication update ID -n <value> -r <value> [-a <value>] [-f] [-e <value>] [-m <value>] [-p <value>] [-s
+  $ coveops org search authentication update [ID] -n <value> -r <value> [-a <value>] [-f] [-e <value>] [-m <value>] [-p <value>] [-s
     <value>] [-t saml|sharepoint] [-u <value>]
 
 ARGUMENTS
@@ -513,15 +445,13 @@ EXAMPLES
   $ coveops org search authentication update --type saml 73404dc5-1111-1111-1111-0e5144482521 --relyingPartyIdentifier https://platform-ca.cloud.coveo.com
 ```
 
-_See code: [src/commands/org/search/authentication/update.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.7.0/src/commands/org/search/authentication/update.ts)_
-
 ## `coveops org vaults create`
 
 Create a new Vault parameter in the specified organization
 
 ```
 USAGE
-  $ coveops org vaults create -n <value> -v <value> [-r EXTENSION|SOURCE -s <value>...] [-t PUBLIC|OBFUSCATED|STRICT]
+  $ coveops org vaults create -n <value> -v <value> [-r EXTENSION|SOURCE -s <value>] [-t PUBLIC|OBFUSCATED|STRICT]
 
 FLAGS
   -n, --key=<value>            (required) Key for the Vault parameter
@@ -535,8 +465,6 @@ FLAGS
 DESCRIPTION
   Create a new Vault parameter in the specified organization
 ```
-
-_See code: [src/commands/org/vaults/create.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.7.0/src/commands/org/vaults/create.ts)_
 
 ## `coveops org vaults list`
 
@@ -556,21 +484,16 @@ EXAMPLES
   coveo org:vaults:list
 ```
 
-_See code: [src/commands/org/vaults/list.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.7.0/src/commands/org/vaults/list.ts)_
-
 ## `coveops plugins`
 
 List installed plugins.
 
 ```
 USAGE
-  $ coveops plugins [--json] [--core]
+  $ coveops plugins [--core]
 
 FLAGS
   --core  Show core plugins.
-
-GLOBAL FLAGS
-  --json  Format output as json.
 
 DESCRIPTION
   List installed plugins.
@@ -579,53 +502,44 @@ EXAMPLES
   $ coveops plugins
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.4.24/src/commands/plugins/index.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v2.1.12/src/commands/plugins/index.ts)_
 
-## `coveops plugins add PLUGIN`
+## `coveops plugins:install PLUGIN...`
 
-Installs a plugin into coveops.
+Installs a plugin into the CLI.
 
 ```
 USAGE
-  $ coveops plugins add PLUGIN... [--json] [-f] [-h] [-s | -v]
+  $ coveops plugins:install PLUGIN...
 
 ARGUMENTS
-  PLUGIN...  Plugin to install.
+  PLUGIN  Plugin to install.
 
 FLAGS
-  -f, --force    Force npm to fetch remote resources even if a local copy exists on disk.
+  -f, --force    Run yarn install with force flag.
   -h, --help     Show CLI help.
-  -s, --silent   Silences npm output.
-  -v, --verbose  Show verbose npm output.
-
-GLOBAL FLAGS
-  --json  Format output as json.
+  -v, --verbose
 
 DESCRIPTION
-  Installs a plugin into coveops.
-
-  Uses npm to install plugins.
+  Installs a plugin into the CLI.
+  Can be installed from npm or a git url.
 
   Installation of a user-installed plugin will override a core plugin.
 
-  Use the COVEOPS_NPM_LOG_LEVEL environment variable to set the npm loglevel.
-  Use the COVEOPS_NPM_REGISTRY environment variable to set the npm registry.
+  e.g. If you have a core plugin that has a 'hello' command, installing a user-installed plugin with a 'hello' command
+  will override the core plugin implementation. This is useful if a user needs to update core plugin functionality in
+  the CLI without the need to patch and update the whole CLI.
+
 
 ALIASES
   $ coveops plugins add
 
 EXAMPLES
-  Install a plugin from npm registry.
+  $ coveops plugins:install myplugin 
 
-    $ coveops plugins add myplugin
+  $ coveops plugins:install https://github.com/someuser/someplugin
 
-  Install a plugin from a github url.
-
-    $ coveops plugins add https://github.com/someuser/someplugin
-
-  Install a plugin from a github slug.
-
-    $ coveops plugins add someuser/someplugin
+  $ coveops plugins:install someuser/someplugin
 ```
 
 ## `coveops plugins:inspect PLUGIN...`
@@ -634,95 +548,77 @@ Displays installation properties of a plugin.
 
 ```
 USAGE
-  $ coveops plugins inspect PLUGIN...
+  $ coveops plugins:inspect PLUGIN...
 
 ARGUMENTS
-  PLUGIN...  [default: .] Plugin to inspect.
+  PLUGIN  [default: .] Plugin to inspect.
 
 FLAGS
   -h, --help     Show CLI help.
   -v, --verbose
-
-GLOBAL FLAGS
-  --json  Format output as json.
 
 DESCRIPTION
   Displays installation properties of a plugin.
 
 EXAMPLES
-  $ coveops plugins inspect myplugin
+  $ coveops plugins:inspect myplugin
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.4.24/src/commands/plugins/inspect.ts)_
+## `coveops plugins:install PLUGIN...`
 
-## `coveops plugins install PLUGIN`
-
-Installs a plugin into coveops.
+Installs a plugin into the CLI.
 
 ```
 USAGE
-  $ coveops plugins install PLUGIN... [--json] [-f] [-h] [-s | -v]
+  $ coveops plugins:install PLUGIN...
 
 ARGUMENTS
-  PLUGIN...  Plugin to install.
+  PLUGIN  Plugin to install.
 
 FLAGS
-  -f, --force    Force npm to fetch remote resources even if a local copy exists on disk.
+  -f, --force    Run yarn install with force flag.
   -h, --help     Show CLI help.
-  -s, --silent   Silences npm output.
-  -v, --verbose  Show verbose npm output.
-
-GLOBAL FLAGS
-  --json  Format output as json.
+  -v, --verbose
 
 DESCRIPTION
-  Installs a plugin into coveops.
-
-  Uses npm to install plugins.
+  Installs a plugin into the CLI.
+  Can be installed from npm or a git url.
 
   Installation of a user-installed plugin will override a core plugin.
 
-  Use the COVEOPS_NPM_LOG_LEVEL environment variable to set the npm loglevel.
-  Use the COVEOPS_NPM_REGISTRY environment variable to set the npm registry.
+  e.g. If you have a core plugin that has a 'hello' command, installing a user-installed plugin with a 'hello' command
+  will override the core plugin implementation. This is useful if a user needs to update core plugin functionality in
+  the CLI without the need to patch and update the whole CLI.
+
 
 ALIASES
   $ coveops plugins add
 
 EXAMPLES
-  Install a plugin from npm registry.
+  $ coveops plugins:install myplugin 
 
-    $ coveops plugins install myplugin
+  $ coveops plugins:install https://github.com/someuser/someplugin
 
-  Install a plugin from a github url.
-
-    $ coveops plugins install https://github.com/someuser/someplugin
-
-  Install a plugin from a github slug.
-
-    $ coveops plugins install someuser/someplugin
+  $ coveops plugins:install someuser/someplugin
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.4.24/src/commands/plugins/install.ts)_
-
-## `coveops plugins link PATH`
+## `coveops plugins:link PLUGIN`
 
 Links a plugin into the CLI for development.
 
 ```
 USAGE
-  $ coveops plugins link PATH [-h] [--install] [-v]
+  $ coveops plugins:link PLUGIN
 
 ARGUMENTS
   PATH  [default: .] path to plugin
 
 FLAGS
-  -h, --help          Show CLI help.
+  -h, --help     Show CLI help.
   -v, --verbose
-      --[no-]install  Install dependencies after linking the plugin.
 
 DESCRIPTION
   Links a plugin into the CLI for development.
-
   Installation of a linked plugin will override a user-installed or core plugin.
 
   e.g. If you have a user-installed or core plugin that has a 'hello' command, installing a linked plugin with a 'hello'
@@ -730,21 +626,19 @@ DESCRIPTION
 
 
 EXAMPLES
-  $ coveops plugins link myplugin
+  $ coveops plugins:link myplugin
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.4.24/src/commands/plugins/link.ts)_
-
-## `coveops plugins remove [PLUGIN]`
+## `coveops plugins:uninstall PLUGIN...`
 
 Removes a plugin from the CLI.
 
 ```
 USAGE
-  $ coveops plugins remove [PLUGIN...] [-h] [-v]
+  $ coveops plugins:uninstall PLUGIN...
 
 ARGUMENTS
-  PLUGIN...  plugin to uninstall
+  PLUGIN  plugin to uninstall
 
 FLAGS
   -h, --help     Show CLI help.
@@ -756,36 +650,18 @@ DESCRIPTION
 ALIASES
   $ coveops plugins unlink
   $ coveops plugins remove
-
-EXAMPLES
-  $ coveops plugins remove myplugin
 ```
 
-## `coveops plugins reset`
-
-Remove all user-installed and linked plugins.
-
-```
-USAGE
-  $ coveops plugins reset [--hard] [--reinstall]
-
-FLAGS
-  --hard       Delete node_modules and package manager related files in addition to uninstalling plugins.
-  --reinstall  Reinstall all plugins after uninstalling.
-```
-
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.4.24/src/commands/plugins/reset.ts)_
-
-## `coveops plugins uninstall [PLUGIN]`
+## `coveops plugins:uninstall PLUGIN...`
 
 Removes a plugin from the CLI.
 
 ```
 USAGE
-  $ coveops plugins uninstall [PLUGIN...] [-h] [-v]
+  $ coveops plugins:uninstall PLUGIN...
 
 ARGUMENTS
-  PLUGIN...  plugin to uninstall
+  PLUGIN  plugin to uninstall
 
 FLAGS
   -h, --help     Show CLI help.
@@ -797,23 +673,18 @@ DESCRIPTION
 ALIASES
   $ coveops plugins unlink
   $ coveops plugins remove
-
-EXAMPLES
-  $ coveops plugins uninstall myplugin
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.4.24/src/commands/plugins/uninstall.ts)_
-
-## `coveops plugins unlink [PLUGIN]`
+## `coveops plugins:uninstall PLUGIN...`
 
 Removes a plugin from the CLI.
 
 ```
 USAGE
-  $ coveops plugins unlink [PLUGIN...] [-h] [-v]
+  $ coveops plugins:uninstall PLUGIN...
 
 ARGUMENTS
-  PLUGIN...  plugin to uninstall
+  PLUGIN  plugin to uninstall
 
 FLAGS
   -h, --help     Show CLI help.
@@ -825,9 +696,6 @@ DESCRIPTION
 ALIASES
   $ coveops plugins unlink
   $ coveops plugins remove
-
-EXAMPLES
-  $ coveops plugins unlink myplugin
 ```
 
 ## `coveops plugins update`
@@ -845,6 +713,4 @@ FLAGS
 DESCRIPTION
   Update installed plugins.
 ```
-
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.4.24/src/commands/plugins/update.ts)_
 <!-- commandsstop -->
