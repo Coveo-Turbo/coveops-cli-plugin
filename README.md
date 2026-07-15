@@ -20,7 +20,7 @@ $ npm install -g coveops-cli-plugin
 $ coveops COMMAND
 running command...
 $ coveops (--version)
-coveops-cli-plugin/0.7.1 darwin-arm64 node-v22.17.0
+coveops-cli-plugin/0.7.2 darwin-arm64 node-v22.17.0
 $ coveops --help [COMMAND]
 USAGE
   $ coveops COMMAND
@@ -106,7 +106,7 @@ EXAMPLES
   hello friend from oclif! (./src/commands/hello/index.ts)
 ```
 
-_See code: [dist/commands/hello/index.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.7.1/dist/commands/hello/index.ts)_
+_See code: [dist/commands/hello/index.ts](https://github.com/Coveo-Turbo/coveops-cli-plugin/blob/v0.7.2/dist/commands/hello/index.ts)_
 
 ## `coveops hello world`
 
